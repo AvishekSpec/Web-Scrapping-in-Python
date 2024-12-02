@@ -3,7 +3,7 @@ Web scraping is a technique in Python to extract information from websites. It i
 and parsing the data you need using libraries like BeautifulSoup, requests, or advanced tools like Selenium. Below is a detailed guide to web scraping in Python:
 
 # Step 1: Understanding Web Scraping
-Use Case: Extracting data from a website (e.g., product prices, articles, or weather data).
+Use Case: Extracting data from a website (e.g., product prices, articles, or weather data).<br>
 Legal Considerations: Ensure compliance with the website's robots.txt file and terms of service.
 
 # Step 2: Setting Up Your Environment
@@ -12,7 +12,7 @@ Legal Considerations: Ensure compliance with the website's robots.txt file and t
 pip install requests beautifulsoup4 lxml
 
 **Additional Libraries (Optional):**
-pandas: For storing and analyzing scraped data.
+pandas: For storing and analyzing scraped data.<br>
 selenium: For scraping JavaScript-rendered content.
 
 # Step 3: Sending an HTTP Request**
