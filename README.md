@@ -1,3 +1,4 @@
+
 Web scraping is a technique in Python to extract information from websites. It involves sending HTTP requests, retrieving HTML content, 
 and parsing the data you need using libraries like BeautifulSoup, requests, or advanced tools like Selenium. Below is a detailed guide to web scraping in Python:
 
@@ -114,4 +115,4 @@ try:
 except requests.exceptions.RequestException as e:
     print(f"An error occurred: {e}")
 
-time.sleep(2)  # Pause for 2 seconds between requests
+
