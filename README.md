@@ -22,15 +22,15 @@ Example:
 
 import requests
 
-url = "https://example.com"
-response = requests.get(url)
+url = "https://example.com"<br>
+response = requests.get(url)<br>
 
 **Check if the request was successful**
-if response.status_code == 200:
-    print("Request successful!")
-    print(response.text[:500])  # Print first 500 characters of the HTML
-else:
-    print(f"Failed to fetch the page. Status code: {response.status_code}")
+if response.status_code == 200:<br>
+    print("Request successful!")<br>
+    print(response.text[:500])  <br>
+else:<br>
+    print(f"Failed to fetch the page. Status code: {response.status_code}")<br>
     
 # Step 4: Parsing HTML with BeautifulSoup
 The BeautifulSoup library helps extract structured data from the HTML.
@@ -42,31 +42,31 @@ from bs4 import BeautifulSoup
 soup = BeautifulSoup(response.text, 'lxml')
 
 **Find specific elements (e.g., title of the page)**
-title = soup.title.text
+title = soup.title.text<br>
 print(f"Page Title: {title}")
 
 **Find all links on the page**
-links = soup.find_all('a')
-for link in links[:5]:  # Display the first 5 links
+links = soup.find_all('a')<br>
+for link in links[:5]:  # Display the first 5 links<br>
     print(link.get('href'))
     
 # Step 5: Navigating the HTML Structure
 
 **Find Elements by Tag:**
-paragraphs = soup.find_all('p')
-for para in paragraphs[:3]:
+paragraphs = soup.find_all('p')<br>
+for para in paragraphs[:3]:<br>
     print(para.text)
     
 **Find Elements by Class or ID:**
-specific_element = soup.find('div', class_='example-class')
+specific_element = soup.find('div', class_='example-class')<br>
 print(specific_element.text)
 
 # Step 6: Handling Dynamic Content
 
-For JavaScript-rendered pages, use Selenium.
+For JavaScript-rendered pages, use Selenium.<br>
 Install Selenium and a WebDriver:
 
-pip install selenium
+pip install selenium<br>
 Download a browser driver (e.g., ChromeDriver).
 
 Example:
@@ -83,7 +83,7 @@ driver.get("https://example.com")
 html = driver.page_source
 
 **Use BeautifulSoup for parsing**
-soup = BeautifulSoup(html, 'lxml')
+soup = BeautifulSoup(html, 'lxml')<br>
 print(soup.title.text)
 
 **Close the driver**
@@ -97,22 +97,22 @@ Example:
 
 import pandas as pd
 
-data = {
-    'Title': [title],
-    'Links': [link.get('href') for link in links[:5]]
-}
+data = {<br>
+    'Title': [title],<br>
+    'Links': [link.get('href') for link in links[:5]]<br>
+}<br>
 
-df = pd.DataFrame(data)
-df.to_csv('scraped_data.csv', index=False)
+df = pd.DataFrame(data)<br>
+df.to_csv('scraped_data.csv', index=False)<br>
 print("Data saved to scraped_data.csv")
 
 # Step 8: Error Handling
 
 **Error Handling:**
-try:
-    response = requests.get(url)
-    response.raise_for_status()  # Raise an HTTPError for bad responses
-except requests.exceptions.RequestException as e:
+try:<br>
+    response = requests.get(url)<br>
+    response.raise_for_status() <br>
+except requests.exceptions.RequestException as e:<br>
     print(f"An error occurred: {e}")
 
 
