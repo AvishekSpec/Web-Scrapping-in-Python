@@ -1,25 +1,24 @@
 Web scraping is a technique in Python to extract information from websites. It involves sending HTTP requests, retrieving HTML content, 
 and parsing the data you need using libraries like BeautifulSoup, requests, or advanced tools like Selenium. Below is a detailed guide to web scraping in Python:
 
-Step 1: Understanding Web Scraping
+**Step 1: Understanding Web Scraping**
 Use Case: Extracting data from a website (e.g., product prices, articles, or weather data).
 Legal Considerations: Ensure compliance with the website's robots.txt file and terms of service.
 
-<Step 2: Setting Up Your Environment>
+**Step 2: Setting Up Your Environment**
+
 Install Required Libraries:
-bash
-Copy code
 pip install requests beautifulsoup4 lxml
+
 Additional Libraries (Optional):
 pandas: For storing and analyzing scraped data.
 selenium: For scraping JavaScript-rendered content.
-Step 3: Sending an HTTP Request
+
+**Step 3: Sending an HTTP Request**
 Use the requests library to fetch the HTML content of the web page.
 
 Example:
 
-python
-Copy code
 import requests
 
 url = "https://example.com"
@@ -31,13 +30,11 @@ if response.status_code == 200:
     print(response.text[:500])  # Print first 500 characters of the HTML
 else:
     print(f"Failed to fetch the page. Status code: {response.status_code}")
-Step 4: Parsing HTML with BeautifulSoup
+    
+**Step 4: Parsing HTML with BeautifulSoup**
 The BeautifulSoup library helps extract structured data from the HTML.
 
 Example:
-
-python
-Copy code
 from bs4 import BeautifulSoup
 
 # Parse the HTML content
@@ -51,32 +48,29 @@ print(f"Page Title: {title}")
 links = soup.find_all('a')
 for link in links[:5]:  # Display the first 5 links
     print(link.get('href'))
-Step 5: Navigating the HTML Structure
+    
+**Step 5: Navigating the HTML Structure**
 Find Elements by Tag:
-python
-Copy code
+
 paragraphs = soup.find_all('p')
 for para in paragraphs[:3]:
     print(para.text)
+    
 Find Elements by Class or ID:
-python
-Copy code
+
 specific_element = soup.find('div', class_='example-class')
 print(specific_element.text)
+
 Step 6: Handling Dynamic Content
 For JavaScript-rendered pages, use Selenium.
 
 Install Selenium and a WebDriver:
 
-bash
-Copy code
 pip install selenium
 Download a browser driver (e.g., ChromeDriver).
 
 Example:
 
-python
-Copy code
 from selenium import webdriver
 
 # Set up the WebDriver
@@ -94,13 +88,12 @@ print(soup.title.text)
 
 # Close the driver
 driver.quit()
-Step 7: Storing Scraped Data
+
+**Step 7: Storing Scraped Data**
 Save data to a CSV or JSON file using pandas.
 
 Example:
 
-python
-Copy code
 import pandas as pd
 
 data = {
@@ -111,18 +104,14 @@ data = {
 df = pd.DataFrame(data)
 df.to_csv('scraped_data.csv', index=False)
 print("Data saved to scraped_data.csv")
-Step 8: Error Handling and Throttling
+
+**Step 8: Error Handling**
 Error Handling:
-python
-Copy code
+
 try:
     response = requests.get(url)
     response.raise_for_status()  # Raise an HTTPError for bad responses
 except requests.exceptions.RequestException as e:
     print(f"An error occurred: {e}")
-Throttling: Avoid overwhelming the server.
-python
-Copy code
-import time
 
 time.sleep(2)  # Pause for 2 seconds between requests
